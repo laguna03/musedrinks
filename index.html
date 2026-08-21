@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muse Drinks</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- 1. Try to load the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- 2. FALLBACK: If the external CSS fails, this inline CSS saves the page! -->
+    <style>
+        /* --- EMERGENCY FALLBACK STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { overflow-x: hidden; overflow-y: visible; background: #1a1a1a; font-family: 'Poppins', sans-serif; }
+        #scroll-video { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 0; pointer-events: none; }
+        #scroll-track { position: relative; z-index: 1; height: 500vh; width: 100%; }
+        #site-footer { position: relative; z-index: 1; background: #1a1a1a; color: #fff; text-align: center; padding: 4rem 1.5rem; }
+        .section-container { position: sticky; top: 0; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+        .section-card { position: absolute; width: 90%; max-width: 480px; padding: 2.5rem; border-radius: 25px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center; color: #fff; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .section-card.visible { opacity: 1; transform: translateY(0); }
+        .section-card:empty { background: none; border: none; box-shadow: none; backdrop-filter: none; opacity: 0 !important; }
+        .section-card h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .ingredient-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+        .ingredient-tags span { background: rgba(255, 255, 255, 0.1); padding: 0.3rem 1rem; border-radius: 50px; color: #fff; border: 1px solid rgba(255, 255, 255, 0.15); }
+        #loading-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #1a1a1a; color: #fff; display: flex; align-items: center; justify-content: center; z-index: 999; transition: opacity 0.8s ease; }
+        #loading-overlay.hidden { opacity: 0; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <div id="loading-overlay">Loading Muse Experience...</div>
+    <video id="scroll-video" muted playsinline preload="auto"></video>
+
+    <div id="scroll-track">
+        <div class="section-container">
+
+            <!-- Empty placeholders, one per video second (0s-10s). Content TBD. -->
+            <div class="section-card" data-start="0" data-end="1"></div>
+            <div class="section-card" data-start="1" data-end="2"></div>
+            <div class="section-card" data-start="2" data-end="3"></div>
+            <div class="section-card" data-start="3" data-end="4"></div>
+            <div class="section-card" data-start="4" data-end="5"></div>
+            <div class="section-card" data-start="5" data-end="6"></div>
+            <div class="section-card" data-start="6" data-end="7"></div>
+            <div class="section-card" data-start="7" data-end="8"></div>
+            <div class="section-card" data-start="8" data-end="9"></div>
+            <div class="section-card" data-start="9" data-end="10"></div>
+
+        </div>
+    </div>
+
+    <footer id="site-footer">
+        <h2>Ready to taste Muse?</h2>
+        <p>Find our bottles at your nearest health food store, or order online for delivery.</p>
+        <div class="ingredient-tags">
+            <span>Instagram</span><span>Contact</span><span>Store Locator</span>
+        </div>
+        <p class="copyright">&copy; 2026 Muse Drinks. All rights reserved.</p>
+    </footer>
+
+    <!-- Load the external Javascript file -->
+    <script src="script.js"></script>
+</body>
+</html>
