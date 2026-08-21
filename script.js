@@ -10,6 +10,10 @@ const sections = document.querySelectorAll('.section-card');
 const loadingOverlay = document.getElementById('loading-overlay');
 
 function loadVideo() {
+    // iOS Safari requires muted to be set as a JS property, not just an attribute, to allow loading without a user gesture
+    video.muted = true;
+    video.defaultMuted = true;
+
     const source = document.createElement('source');
     source.src = videoConfig.mp4;
     source.type = 'video/mp4';
@@ -49,9 +53,10 @@ function initScrollEngine() {
 }
 
 function updateVideoAndText() {
-    const track = document.getElementById('scroll-track');
     const scrollTop = window.scrollY;
-    const trackHeight = track.scrollHeight - window.innerHeight;
+    // Use the full page height so the video keeps scrubbing all the way to the footer,
+    // instead of freezing once the pinned #scroll-track section ends.
+    const trackHeight = document.documentElement.scrollHeight - window.innerHeight;
     
     // Calculate progress from 0 to 1
     let percentage = trackHeight > 0 ? scrollTop / trackHeight : 0;
@@ -80,3 +85,38 @@ function updateVideoAndText() {
 
 // Start the experience
 loadVideo();
+initOrderForm();
+
+// TODO: replace with the real business WhatsApp number (country code + number, no symbols)
+const WHATSAPP_NUMBER = '10000000000';
+
+function initOrderForm() {
+    const flavorButtons = document.querySelectorAll('.flavor-option');
+    const orderForm = document.getElementById('order-form');
+    const nameInput = document.getElementById('customer-name');
+    let selectedFlavor = null;
+
+    flavorButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            selectedFlavor = button.dataset.flavor;
+            flavorButtons.forEach(b => b.classList.remove('selected'));
+            button.classList.add('selected');
+        });
+    });
+
+    orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (!selectedFlavor) {
+            alert('Por favor escoge un sabor antes de pedir.');
+            return;
+        }
+
+        const name = nameInput.value.trim();
+        const greeting = name ? `Hola, soy ${name}.` : 'Hola,';
+        const message = `${greeting} Quiero pedir un jugo de ${selectedFlavor}.`;
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, '_blank');
+    });
+}
