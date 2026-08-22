@@ -110,46 +110,50 @@ function initOrderForm() {
     });
 }
 
-// ===== DETECCIÓN Y CARGA DE IMÁGENES =====
+// ===== CARGA INTELIGENTE DE IMÁGENES (prueba PNG y JPG) =====
 document.addEventListener('DOMContentLoaded', function() {
     const imageFiles = [
-        { id: 'logo-img', file: 'logo.png' },
-        { id: 'img-remolacha', file: 'remolacha.png' },
-        { id: 'img-pepino', file: 'pepino.png' },
-        { id: 'img-zanahoria', file: 'zanahoria.png' }
+        { id: 'logo-img', name: 'logo' },
+        { id: 'img-remolacha', name: 'remolacha' },
+        { id: 'img-pepino', name: 'pepino' },
+        { id: 'img-zanahoria', name: 'zanahoria' }
     ];
 
-    // Intentar cargar cada imagen con diferentes rutas
-    imageFiles.forEach(({ id, file }) => {
+    // Extensiones a probar en orden
+    const extensions = ['png', 'jpg', 'jpeg'];
+
+    imageFiles.forEach(({ id, name }) => {
         const img = document.getElementById(id);
         if (!img) return;
 
-        // Guardar la ruta original
-        const originalSrc = img.src;
+        let currentExtIndex = 0;
 
-        // Función para intentar cargar una ruta
-        function tryLoad(src) {
-            img.src = src;
-        }
-
-        // Evento de error para probar rutas alternativas
-        img.onerror = function() {
-            // Si la ruta actual es relativa, probar con ruta absoluta
-            if (!img.src.includes('/')) {
-                tryLoad('/' + file);
-            } else if (img.src.startsWith('/')) {
-                // Si ya probó con absoluta, probar con ./ (misma carpeta)
-                tryLoad('./' + file);
-            } else {
-                // Si todo falla, mostrar un mensaje en el alt
-                img.alt = file + ' (no cargó)';
+        function tryNextExtension() {
+            if (currentExtIndex >= extensions.length) {
+                // Si todas las extensiones fallaron, mostrar alt
+                img.alt = name + ' (no disponible)';
                 img.style.opacity = '0.3';
+                return;
             }
-        };
 
-        // Si la imagen ya está cargada correctamente, no hacemos nada
-        if (img.complete && img.naturalWidth > 0) {
-            img.onerror = null;
+            const ext = extensions[currentExtIndex];
+            const src = name + '.' + ext;
+            img.src = src;
+
+            // Si la imagen ya se cargó correctamente, no hacemos nada más
+            if (img.complete && img.naturalWidth > 0) {
+                img.onerror = null;
+                return;
+            }
+
+            // Si falla, probar la siguiente extensión
+            img.onerror = function() {
+                currentExtIndex++;
+                tryNextExtension();
+            };
         }
+
+        // Iniciar la prueba con la primera extensión
+        tryNextExtension();
     });
 });
