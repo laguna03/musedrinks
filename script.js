@@ -109,3 +109,47 @@ function initOrderForm() {
         window.open(whatsappUrl, '_blank');
     });
 }
+
+// ===== DETECCIÓN Y CARGA DE IMÁGENES =====
+document.addEventListener('DOMContentLoaded', function() {
+    const imageFiles = [
+        { id: 'logo-img', file: 'logo.png' },
+        { id: 'img-remolacha', file: 'remolacha.png' },
+        { id: 'img-pepino', file: 'pepino.png' },
+        { id: 'img-zanahoria', file: 'zanahoria.png' }
+    ];
+
+    // Intentar cargar cada imagen con diferentes rutas
+    imageFiles.forEach(({ id, file }) => {
+        const img = document.getElementById(id);
+        if (!img) return;
+
+        // Guardar la ruta original
+        const originalSrc = img.src;
+
+        // Función para intentar cargar una ruta
+        function tryLoad(src) {
+            img.src = src;
+        }
+
+        // Evento de error para probar rutas alternativas
+        img.onerror = function() {
+            // Si la ruta actual es relativa, probar con ruta absoluta
+            if (!img.src.includes('/')) {
+                tryLoad('/' + file);
+            } else if (img.src.startsWith('/')) {
+                // Si ya probó con absoluta, probar con ./ (misma carpeta)
+                tryLoad('./' + file);
+            } else {
+                // Si todo falla, mostrar un mensaje en el alt
+                img.alt = file + ' (no cargó)';
+                img.style.opacity = '0.3';
+            }
+        };
+
+        // Si la imagen ya está cargada correctamente, no hacemos nada
+        if (img.complete && img.naturalWidth > 0) {
+            img.onerror = null;
+        }
+    });
+});
