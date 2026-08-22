@@ -217,11 +217,13 @@ html {
     max-width: 90%;
 }
 
-/* ===== IMAGEN DE LA BOTELLA (borde glass) ===== */
+/* ===== IMAGEN DE LA BOTELLA (MEJORADA PARA MÓVIL) ===== */
 .flavor-img {
     flex: 0 0 300px;
     max-width: 300px;
     display: block;
+    width: 100%;
+    height: auto;
     border-radius: 35px;
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(4px);
@@ -234,9 +236,9 @@ html {
 }
 
 .flavor-img img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
     border-radius: 30px;
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -384,7 +386,7 @@ html {
     color: rgba(255, 255, 255, 0.3);
 }
 
-/* ===== FOOTER (solo derechos y powered) ===== */
+/* ===== FOOTER ===== */
 #site-footer .glass-panel {
     flex-direction: column;
     text-align: center;
@@ -532,7 +534,4 @@ html {
         top: 12px;
         left: 12px;
     }
-
-    /* === ELIMINADO: ya no hay zoom out en móvil === */
-    /* El video se mantiene con object-fit: cover sin escalado extra */
 }

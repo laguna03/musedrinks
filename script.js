@@ -72,7 +72,6 @@ function updateVideo() {
 loadVideo();
 initOrderForm();
 
-// ===== NÚMERO DE WHATSAPP ACTUALIZADO =====
 const WHATSAPP_NUMBER = '7872534967';
 
 function initOrderForm() {
