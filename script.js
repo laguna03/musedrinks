@@ -1,7 +1,7 @@
 const videoConfig = {
     sources: [
-        { src: '/muse-video.mp4', type: 'video/mp4' },
-        { src: '/muse-video.webm', type: 'video/webm' }
+        { src: 'muse-video.mp4', type: 'video/mp4' },
+        { src: 'muse-video.webm', type: 'video/webm' }
     ]
 };
 
