@@ -533,17 +533,6 @@ html {
         left: 12px;
     }
 
-    /* ===== ZOOM OUT DEL VIDEO EN MÓVILES ===== */
-    #scroll-video {
-        transform: scale(0.92);
-        transform-origin: center;
-        /* El fondo negro del body rellena los bordes */
-    }
-}
-
-/* Ajuste adicional para pantallas muy pequeñas (ej. iPhone SE) */
-@media (max-width: 375px) {
-    #scroll-video {
-        transform: scale(0.88);
-    }
+    /* === ELIMINADO: ya no hay zoom out en móvil === */
+    /* El video se mantiene con object-fit: cover sin escalado extra */
 }
