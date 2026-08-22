@@ -1,5 +1,8 @@
 const videoConfig = {
-    mp4: 'muse-video.mp4'
+    sources: [
+        { src: 'muse-video.mp4', type: 'video/mp4' },
+        { src: 'muse-video.webm', type: 'video/webm' }
+    ]
 };
 
 // Scroll should scrub the entire video, start to finish
@@ -14,10 +17,18 @@ function loadVideo() {
     video.muted = true;
     video.defaultMuted = true;
 
-    const source = document.createElement('source');
-    source.src = videoConfig.mp4;
-    source.type = 'video/mp4';
-    video.appendChild(source);
+    // Clear any existing source elements (just in case)
+    while (video.firstChild) {
+        video.removeChild(video.firstChild);
+    }
+
+    // Add all sources from config
+    videoConfig.sources.forEach(source => {
+        const sourceEl = document.createElement('source');
+        sourceEl.src = source.src;
+        sourceEl.type = source.type;
+        video.appendChild(sourceEl);
+    });
 
     // Some browsers need an explicit load() after appending the source
     video.load();
