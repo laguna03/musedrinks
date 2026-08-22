@@ -1,97 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muse Drinks</title>
-    
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- 1. Try to load the external CSS file -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- 2. FALLBACK: If the external CSS fails, this inline CSS saves the page! -->
-    <style>
-        /* --- EMERGENCY FALLBACK STYLES --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { overflow-x: hidden; overflow-y: visible; background: #1a1a1a; font-family: 'Inter', sans-serif; }
-        #scroll-video { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; object-fit: cover; z-index: 0; pointer-events: none; }
-        #scroll-track { position: relative; z-index: 1; height: 500vh; width: 100%; }
-        #flavor-section, #order-section, #site-footer { position: relative; z-index: 1; color: #fff; text-align: center; padding: 4rem 1.5rem; display: flex; justify-content: center; }
-        .glass-panel { width: 100%; max-width: 560px; padding: 3rem 2.5rem; border-radius: 25px; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.25); }
-        .section-container { position: sticky; top: 0; height: 100vh; height: 100dvh; width: 100%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-        .section-card { position: absolute; width: 90%; max-width: 480px; padding: 2.5rem; border-radius: 25px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); text-align: center; color: #fff; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .section-card.visible { opacity: 1; transform: translateY(0); }
-        .section-card:empty { background: none; border: none; box-shadow: none; backdrop-filter: none; opacity: 0 !important; }
-        .section-card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
-        .ingredient-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-        .ingredient-tags span { background: rgba(255, 255, 255, 0.1); padding: 0.3rem 1rem; border-radius: 50px; color: #fff; border: 1px solid rgba(255, 255, 255, 0.15); }
-        #loading-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; background: #1a1a1a; color: #fff; display: flex; align-items: center; justify-content: center; z-index: 999; transition: opacity 0.8s ease; }
-        #loading-overlay.hidden { opacity: 0; pointer-events: none; }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Estilos principales (TODO el CSS está aquí) -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+    <!-- ===== LOGO FIJO ===== -->
+    <a id="logo-link" href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
+        <img src="logo.png" alt="Muse Drinks" />
+    </a>
+
     <div id="loading-overlay">Loading Muse Experience...</div>
+
     <video id="scroll-video" muted playsinline webkit-playsinline preload="auto"></video>
 
-    <div id="scroll-track">
-        <div class="section-container">
+    <div id="scroll-track"></div>
 
-            <!-- Empty placeholders, one per video second (0s-10s). Content TBD. -->
-            <div class="section-card" data-start="0" data-end="1"></div>
-            <div class="section-card" data-start="1" data-end="2"></div>
-            <div class="section-card" data-start="2" data-end="3"></div>
-            <div class="section-card" data-start="3" data-end="4"></div>
-            <div class="section-card" data-start="4" data-end="5"></div>
-            <div class="section-card" data-start="5" data-end="6"></div>
-            <div class="section-card" data-start="6" data-end="7"></div>
-            <div class="section-card" data-start="7" data-end="8"></div>
-            <div class="section-card" data-start="8" data-end="9"></div>
-            <div class="section-card" data-start="9" data-end="10"></div>
-
-        </div>
-    </div>
-
-    <section id="flavor-section">
+    <!-- ===== REMOLACHA ===== -->
+    <section id="flavor-remolacha" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(180, 30, 50, 0.15) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
-            <h2>Escoge tu sabor</h2>
-            <p>Selecciona el sabor que quieres pedir.</p>
-            <div class="flavor-options">
-                <button type="button" class="flavor-option" data-flavor="Pepino">Pepino</button>
-                <button type="button" class="flavor-option" data-flavor="Zanahoria">Zanahoria</button>
-                <button type="button" class="flavor-option" data-flavor="Remolacha">Remolacha</button>
+            <img class="flavor-img" src="remolacha.png" alt="Botella de Remolacha" />
+            <div class="flavor-content">
+                <span class="badge">Sabor</span>
+                <h2>Remolacha</h2>
+                <p>Dulce, terrosa y llena de antioxidantes. El poder de la naturaleza en cada sorbo.</p>
+                <button class="select-flavor-btn neon-btn" data-flavor="Remolacha">Seleccionar</button>
             </div>
         </div>
     </section>
 
-    <section id="order-section">
+    <!-- ===== PEPINO ===== -->
+    <section id="flavor-pepino" class="flavor-section" style="background: radial-gradient(ellipse at 80% 50%, rgba(30, 180, 70, 0.12) 0%, #0d0d0d 70%);">
+        <div class="glass-panel" style="flex-direction:row-reverse;">
+            <img class="flavor-img" src="pepino.png" alt="Botella de Pepino" />
+            <div class="flavor-content">
+                <span class="badge">Sabor</span>
+                <h2>Pepino</h2>
+                <p>Fresco, hidratante y refrescante. El sabor perfecto para un día ligero.</p>
+                <button class="select-flavor-btn neon-btn" data-flavor="Pepino">Seleccionar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ZANAHORIA ===== -->
+    <section id="flavor-zanahoria" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(230, 130, 20, 0.13) 0%, #0d0d0d 70%);">
+        <div class="glass-panel">
+            <img class="flavor-img" src="zanahoria.png" alt="Botella de Zanahoria" />
+            <div class="flavor-content">
+                <span class="badge">Sabor</span>
+                <h2>Zanahoria</h2>
+                <p>Dulce, nutritiva y llena de vitamina A. Un clásico que nunca falla.</p>
+                <button class="select-flavor-btn neon-btn" data-flavor="Zanahoria">Seleccionar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PEDIDO ===== -->
+    <section id="order-section" style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, #0d0d0d 80%);">
         <div class="glass-panel">
             <h2>Haz tu pedido</h2>
-            <p>Te enviaremos directo a WhatsApp con tu sabor ya seleccionado.</p>
+            <p id="selected-flavor-display">Aún no has seleccionado un sabor.</p>
             <form id="order-form">
-                <input type="text" id="customer-name" placeholder="Tu nombre (opcional)">
-                <button type="submit" id="order-button">Pedir</button>
+                <input type="text" id="customer-name" placeholder="Tu nombre (opcional)" />
+                <button type="submit" id="order-button" class="neon-btn">Pedir</button>
             </form>
         </div>
     </section>
 
-    <footer id="site-footer">
+    <!-- ===== FOOTER ===== -->
+    <footer id="site-footer" style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.015) 0%, #0d0d0d 80%);">
         <div class="glass-panel">
-            <h2>Ready to taste Muse?</h2>
-            <p>Find our bottles at your nearest health food store, or order online for delivery.</p>
-            <div class="ingredient-tags">
-                <span>Instagram</span><span>Contact</span><span>Store Locator</span>
+            <div class="footer-legal">
+                <span>&copy; 2026 Muse Drinks. All rights reserved.</span>
+                <span class="powered">Powered by <a href="#" onclick="event.preventDefault();">Lagvnsoftware</a></span>
             </div>
-            <p class="copyright">&copy; 2026 Muse Drinks. All rights reserved.</p>
         </div>
     </footer>
 
-
-    <!-- Load the external Javascript file -->
     <script src="script.js"></script>
 </body>
 </html>
