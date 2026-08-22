@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muse Drinks</title>
 
-    <!-- Favicon (intenta con PNG primero) -->
+    <!-- Favicon (logo.png) -->
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
 
@@ -19,10 +19,9 @@
 </head>
 <body>
 
-    <!-- ===== LOGO FIJO (con fallback a JPG) ===== -->
+    <!-- ===== LOGO FIJO ===== -->
     <a id="logo-link" href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-        <img id="main-logo" src="logo.png" alt="Muse Drinks" 
-             onerror="this.onerror=null; this.src='logo.jpg'; this.alt='Muse';" />
+        <img src="logo.png" alt="Muse Drinks" />
     </a>
 
     <div id="loading-overlay">Loading Muse Experience...</div>
@@ -35,8 +34,7 @@
     <section id="flavor-remolacha" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(180, 30, 50, 0.15) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
             <div class="flavor-img-container">
-                <img class="flavor-img" src="remolacha.png" alt="Remolacha" 
-                     onerror="this.onerror=null; this.src='remolacha.jpg'; this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:#fff; font-size:2rem; font-weight:700;\'>Remolacha</span>'; this.parentElement.style.backgroundColor='rgba(180,40,60,0.4)';" />
+                <img class="flavor-img" src="remolacha.png" alt="Remolacha" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
@@ -51,8 +49,7 @@
     <section id="flavor-pepino" class="flavor-section" style="background: radial-gradient(ellipse at 80% 50%, rgba(30, 180, 70, 0.12) 0%, #0d0d0d 70%);">
         <div class="glass-panel" style="flex-direction:row-reverse;">
             <div class="flavor-img-container">
-                <img class="flavor-img" src="pepino.png" alt="Pepino" 
-                     onerror="this.onerror=null; this.src='pepino.jpg'; this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:#fff; font-size:2rem; font-weight:700;\'>Pepino</span>'; this.parentElement.style.backgroundColor='rgba(40,180,80,0.4)';" />
+                <img class="flavor-img" src="pepino.png" alt="Pepino" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
@@ -67,8 +64,7 @@
     <section id="flavor-zanahoria" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(230, 130, 20, 0.13) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
             <div class="flavor-img-container">
-                <img class="flavor-img" src="zanahoria.png" alt="Zanahoria" 
-                     onerror="this.onerror=null; this.src='zanahoria.jpg'; this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:#fff; font-size:2rem; font-weight:700;\'>Zanahoria</span>'; this.parentElement.style.backgroundColor='rgba(230,140,30,0.4)';" />
+                <img class="flavor-img" src="zanahoria.png" alt="Zanahoria" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>

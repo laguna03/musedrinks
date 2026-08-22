@@ -13,7 +13,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ===== LOGO FIJO (mejorado) ===== */
+/* ===== LOGO FIJO ===== */
 #logo-link {
     position: fixed;
     top: 24px;
@@ -25,21 +25,18 @@ html {
 }
 
 #logo-link:hover {
-    transform: scale(1.08);
+    transform: scale(1.06);
     opacity: 0.9;
 }
 
 #logo-link img {
-    height: 70px; /* un poco más grande */
+    height: 64px;
     width: auto;
     display: block;
-    /* Sombra neón más pronunciada */
-    filter: drop-shadow(0 0 25px rgba(255, 107, 107, 0.5))
-            drop-shadow(0 0 50px rgba(255, 215, 0, 0.4))
-            drop-shadow(0 0 75px rgba(107, 203, 119, 0.3));
+    filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.4))
+            drop-shadow(0 0 40px rgba(255, 215, 0, 0.3))
+            drop-shadow(0 0 60px rgba(107, 203, 119, 0.2));
     transition: filter 0.3s ease, transform 0.3s ease;
-    border-radius: 12px; /* suave, si el logo es cuadrado */
-    background: transparent; /* sin fondo */
 }
 
 #logo-link:hover img {
@@ -48,24 +45,24 @@ html {
 
 @keyframes logoGlow {
     0% {
-        filter: drop-shadow(0 0 25px #ff6b6b)
-                drop-shadow(0 0 50px #ffd93d)
-                drop-shadow(0 0 75px #6bcb77);
+        filter: drop-shadow(0 0 20px #ff6b6b)
+                drop-shadow(0 0 40px #ffd93d)
+                drop-shadow(0 0 60px #6bcb77);
     }
     33% {
-        filter: drop-shadow(0 0 25px #ffd93d)
-                drop-shadow(0 0 50px #6bcb77)
-                drop-shadow(0 0 75px #4d96ff);
+        filter: drop-shadow(0 0 20px #ffd93d)
+                drop-shadow(0 0 40px #6bcb77)
+                drop-shadow(0 0 60px #4d96ff);
     }
     66% {
-        filter: drop-shadow(0 0 25px #6bcb77)
-                drop-shadow(0 0 50px #4d96ff)
-                drop-shadow(0 0 75px #ff6b6b);
+        filter: drop-shadow(0 0 20px #6bcb77)
+                drop-shadow(0 0 40px #4d96ff)
+                drop-shadow(0 0 60px #ff6b6b);
     }
     100% {
-        filter: drop-shadow(0 0 25px #ff6b6b)
-                drop-shadow(0 0 50px #ffd93d)
-                drop-shadow(0 0 75px #6bcb77);
+        filter: drop-shadow(0 0 20px #ff6b6b)
+                drop-shadow(0 0 40px #ffd93d)
+                drop-shadow(0 0 60px #6bcb77);
     }
 }
 
@@ -220,7 +217,7 @@ html {
     max-width: 90%;
 }
 
-/* ===== CONTENEDOR DE IMAGEN (simplificado) ===== */
+/* ===== CONTENEDOR DE IMAGEN ===== */
 .flavor-img-container {
     flex: 0 0 300px;
     max-width: 300px;
@@ -253,7 +250,7 @@ html {
     transform: scale(1.02);
 }
 
-/* ===== BOTÓN NEÓN (compartido) ===== */
+/* ===== BOTÓN NEÓN ===== */
 .neon-btn {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.1rem;
@@ -476,6 +473,7 @@ html {
         width: 100%;
         max-width: 220px;
         margin: 0 auto;
+        /* Elimino efectos que puedan causar problemas en móvil */
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         background: rgba(255, 255, 255, 0.04);
@@ -500,12 +498,17 @@ html {
     }
 
     #logo-link img {
-        height: 56px; /* un poco más pequeño en tablet */
+        height: 48px;
     }
 
     #logo-link {
         top: 16px;
         left: 16px;
+    }
+
+    /* Elimino también filter del logo en móvil para evitar problemas */
+    #logo-link img {
+        filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
     }
 }
 
@@ -531,11 +534,15 @@ html {
     }
 
     #logo-link img {
-        height: 48px; /* más grande en móvil */
+        height: 40px;
     }
 
     #logo-link {
         top: 12px;
         left: 12px;
+    }
+
+    #logo-link img {
+        filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.2));
     }
 }
