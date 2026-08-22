@@ -33,6 +33,7 @@ html {
     height: 64px;
     width: auto;
     display: block;
+    /* Sombra neón solo en desktop */
     filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.4))
             drop-shadow(0 0 40px rgba(255, 215, 0, 0.3))
             drop-shadow(0 0 60px rgba(107, 203, 119, 0.2));
@@ -217,40 +218,34 @@ html {
     max-width: 90%;
 }
 
-/* ===== CONTENEDOR DE IMAGEN ===== */
-.flavor-img-container {
+/* ===== IMAGEN DE LA BOTELLA (SIN FILTROS PROBLEMÁTICOS) ===== */
+.flavor-img {
     flex: 0 0 300px;
     max-width: 300px;
+    display: block;
+    width: 100%;
+    height: auto;
     border-radius: 35px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.5s ease;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0.5rem;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.5s ease;
 }
 
-.flavor-img {
+.flavor-img img {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 30px;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.flavor-section:hover .flavor-img-container {
+.flavor-section:hover .flavor-img {
     transform: scale(1.04) rotate(-2deg);
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.flavor-section:hover .flavor-img {
-    transform: scale(1.02);
-}
-
-/* ===== BOTÓN NEÓN (compartido) ===== */
+/* ===== BOTÓN NEÓN ===== */
 .neon-btn {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.1rem;
@@ -468,16 +463,21 @@ html {
         margin-right: auto;
     }
 
-    .flavor-img-container {
+    .flavor-img {
         flex: 0 0 auto;
         width: 100%;
         max-width: 220px;
         margin: 0 auto;
-        /* Desactivamos efectos que puedan causar problemas en móvil */
+        /* Eliminamos efectos que puedan bloquear la imagen en móvil */
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Quitamos la sombra neón del logo en móvil para evitar problemas */
+    #logo-link img {
+        filter: drop-shadow(0 0 15px rgba(255,107,107,0.3));
     }
 
     .flavor-content h2 {
@@ -520,8 +520,9 @@ html {
         padding: 1.5rem 1rem;
     }
 
-    .flavor-img-container {
+    .flavor-img {
         max-width: 160px;
+        padding: 0.3rem;
     }
 
     #order-section h2 {
@@ -530,6 +531,8 @@ html {
 
     #logo-link img {
         height: 40px;
+        /* Sin drop-shadow en móvil para evitar problemas */
+        filter: none;
     }
 
     #logo-link {

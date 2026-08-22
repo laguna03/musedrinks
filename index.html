@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muse Drinks</title>
 
-    <!-- ===== FAVICON (usando el logo, ruta relativa) ===== -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
 
@@ -14,14 +14,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- Estilos principales -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <!-- ===== LOGO FIJO ===== -->
+    <!-- Logo fijo -->
     <a id="logo-link" href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-        <img src="logo.png" alt="Muse Drinks" onerror="this.alt='Muse'; this.style.fontSize='2rem'; this.style.color='white';" />
+        <img src="logo.png" alt="Muse Drinks" loading="eager" />
     </a>
 
     <div id="loading-overlay">Loading Muse Experience...</div>
@@ -30,12 +29,10 @@
 
     <div id="scroll-track"></div>
 
-    <!-- ===== REMOLACHA ===== -->
+    <!-- Remolacha -->
     <section id="flavor-remolacha" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(180, 30, 50, 0.15) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
-            <div class="flavor-img-container">
-                <img class="flavor-img" src="remolacha.png" alt="Remolacha" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-size:1.2rem;\'>🍠 Remolacha</span>';" />
-            </div>
+            <img class="flavor-img" src="remolacha.png" alt="Botella de Remolacha" loading="eager" />
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
                 <h2>Remolacha</h2>
@@ -45,12 +42,10 @@
         </div>
     </section>
 
-    <!-- ===== PEPINO ===== -->
+    <!-- Pepino -->
     <section id="flavor-pepino" class="flavor-section" style="background: radial-gradient(ellipse at 80% 50%, rgba(30, 180, 70, 0.12) 0%, #0d0d0d 70%);">
         <div class="glass-panel" style="flex-direction:row-reverse;">
-            <div class="flavor-img-container">
-                <img class="flavor-img" src="pepino.png" alt="Pepino" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-size:1.2rem;\'>🥒 Pepino</span>';" />
-            </div>
+            <img class="flavor-img" src="pepino.png" alt="Botella de Pepino" loading="eager" />
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
                 <h2>Pepino</h2>
@@ -60,12 +55,10 @@
         </div>
     </section>
 
-    <!-- ===== ZANAHORIA ===== -->
+    <!-- Zanahoria -->
     <section id="flavor-zanahoria" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(230, 130, 20, 0.13) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
-            <div class="flavor-img-container">
-                <img class="flavor-img" src="zanahoria.png" alt="Zanahoria" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-size:1.2rem;\'>🥕 Zanahoria</span>';" />
-            </div>
+            <img class="flavor-img" src="zanahoria.png" alt="Botella de Zanahoria" loading="eager" />
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
                 <h2>Zanahoria</h2>
@@ -75,7 +68,7 @@
         </div>
     </section>
 
-    <!-- ===== PEDIDO ===== -->
+    <!-- Pedido -->
     <section id="order-section" style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, #0d0d0d 80%);">
         <div class="glass-panel">
             <h2>Haz tu pedido</h2>
@@ -87,7 +80,7 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- Footer -->
     <footer id="site-footer" style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.015) 0%, #0d0d0d 80%);">
         <div class="glass-panel">
             <div class="footer-legal">
