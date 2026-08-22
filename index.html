@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muse Drinks</title>
 
-    <!-- Favicon (logo.png) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
 
@@ -19,9 +19,9 @@
 </head>
 <body>
 
-    <!-- ===== LOGO FIJO ===== -->
+    <!-- ===== LOGO FIJO (con fallback de ruta) ===== -->
     <a id="logo-link" href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-        <img src="logo.png" alt="Muse Drinks" />
+        <img src="logo.png" alt="Muse Drinks" onerror="this.src='/logo.png'; this.onerror=null;" />
     </a>
 
     <div id="loading-overlay">Loading Muse Experience...</div>
@@ -34,7 +34,7 @@
     <section id="flavor-remolacha" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(180, 30, 50, 0.15) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
             <div class="flavor-img-container">
-                <img class="flavor-img" src="remolacha.png" alt="Remolacha" />
+                <img class="flavor-img" src="remolacha.png" alt="Remolacha" onerror="this.src='/remolacha.png'; this.onerror=null;" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
@@ -49,7 +49,7 @@
     <section id="flavor-pepino" class="flavor-section" style="background: radial-gradient(ellipse at 80% 50%, rgba(30, 180, 70, 0.12) 0%, #0d0d0d 70%);">
         <div class="glass-panel" style="flex-direction:row-reverse;">
             <div class="flavor-img-container">
-                <img class="flavor-img" src="pepino.png" alt="Pepino" />
+                <img class="flavor-img" src="pepino.png" alt="Pepino" onerror="this.src='/pepino.png'; this.onerror=null;" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
@@ -64,7 +64,7 @@
     <section id="flavor-zanahoria" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(230, 130, 20, 0.13) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
             <div class="flavor-img-container">
-                <img class="flavor-img" src="zanahoria.png" alt="Zanahoria" />
+                <img class="flavor-img" src="zanahoria.png" alt="Zanahoria" onerror="this.src='/zanahoria.png'; this.onerror=null;" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>

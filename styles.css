@@ -473,7 +473,7 @@ html {
         width: 100%;
         max-width: 220px;
         margin: 0 auto;
-        /* Elimino efectos que puedan causar problemas en móvil */
+        /* Elimino efectos problemáticos en móvil */
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         background: rgba(255, 255, 255, 0.04);
@@ -506,7 +506,6 @@ html {
         left: 16px;
     }
 
-    /* Elimino también filter del logo en móvil para evitar problemas */
     #logo-link img {
         filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
     }
