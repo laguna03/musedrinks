@@ -31,47 +31,48 @@
 
     <div id="scroll-track"></div>
 
-    <!-- ===== REMOLACHA ===== -->
-    <section id="flavor-remolacha" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(180, 30, 50, 0.15) 0%, #0d0d0d 70%);">
+    <!-- ===== RENACE (BEST SELLER) ===== -->
+    <section id="flavor-renace" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(180, 30, 50, 0.15) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
             <div class="flavor-img-container">
-                <img class="flavor-img" id="img-remolacha" src="remolacha.png" alt="Remolacha" />
+                <img class="flavor-img" id="img-remolacha" src="remolacha.png" alt="RENACE" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
-                <h2>Remolacha</h2>
-                <p>Dulce, terrosa y llena de antioxidantes. El poder de la naturaleza en cada sorbo.</p>
-                <button class="select-flavor-btn neon-btn" data-flavor="Remolacha">Seleccionar</button>
+                <span class="best-seller-badge">BEST SELLER</span>
+                <h2>RENACE</h2>
+                <p>Remolacha, jengibre, cúrcuma, zanahoria, pepino, linaza, flor de jamaica y miel 100%.</p>
+                <button class="select-flavor-btn neon-btn" data-flavor="RENACE">Seleccionar</button>
             </div>
         </div>
     </section>
 
-    <!-- ===== PEPINO ===== -->
-    <section id="flavor-pepino" class="flavor-section" style="background: radial-gradient(ellipse at 80% 50%, rgba(30, 180, 70, 0.12) 0%, #0d0d0d 70%);">
+    <!-- ===== FRESCO ===== -->
+    <section id="flavor-fresco" class="flavor-section" style="background: radial-gradient(ellipse at 80% 50%, rgba(30, 180, 70, 0.12) 0%, #0d0d0d 70%);">
         <div class="glass-panel" style="flex-direction:row-reverse;">
             <div class="flavor-img-container">
-                <img class="flavor-img" id="img-pepino" src="pepino.png" alt="Pepino" />
+                <img class="flavor-img" id="img-pepino" src="pepino.png" alt="FRESCO" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
-                <h2>Pepino</h2>
-                <p>Fresco, hidratante y refrescante. El sabor perfecto para un día ligero.</p>
-                <button class="select-flavor-btn neon-btn" data-flavor="Pepino">Seleccionar</button>
+                <h2>FRESCO</h2>
+                <p>Jengibre, pepino, zanahoria y miel 100%.</p>
+                <button class="select-flavor-btn neon-btn" data-flavor="FRESCO">Seleccionar</button>
             </div>
         </div>
     </section>
 
-    <!-- ===== ZANAHORIA ===== -->
-    <section id="flavor-zanahoria" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(230, 130, 20, 0.13) 0%, #0d0d0d 70%);">
+    <!-- ===== ELEVA ===== -->
+    <section id="flavor-eleva" class="flavor-section" style="background: radial-gradient(ellipse at 20% 50%, rgba(230, 130, 20, 0.13) 0%, #0d0d0d 70%);">
         <div class="glass-panel">
             <div class="flavor-img-container">
-                <img class="flavor-img" id="img-zanahoria" src="zanahoria.png" alt="Zanahoria" />
+                <img class="flavor-img" id="img-zanahoria" src="zanahoria.png" alt="ELEVA" />
             </div>
             <div class="flavor-content">
                 <span class="badge">Sabor</span>
-                <h2>Zanahoria</h2>
-                <p>Dulce, nutritiva y llena de vitamina A. Un clásico que nunca falla.</p>
-                <button class="select-flavor-btn neon-btn" data-flavor="Zanahoria">Seleccionar</button>
+                <h2>ELEVA</h2>
+                <p>Cúrcuma, jengibre, zanahoria y miel 100%.</p>
+                <button class="select-flavor-btn neon-btn" data-flavor="ELEVA">Seleccionar</button>
             </div>
         </div>
     </section>
@@ -80,7 +81,10 @@
     <section id="order-section" style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, #0d0d0d 80%);">
         <div class="glass-panel">
             <h2>Haz tu pedido</h2>
-            <p id="selected-flavor-display">Aún no has seleccionado un sabor.</p>
+            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem;">
+                Selecciona uno o más sabores y presiona el botón para ordenar por WhatsApp.
+            </p>
+            <p id="selected-flavor-display">Aún no has seleccionado ningún sabor.</p>
             <form id="order-form">
                 <input type="text" id="customer-name" placeholder="Tu nombre (opcional)" />
                 <button type="submit" id="order-button" class="neon-btn">Pedir</button>
@@ -100,4 +104,4 @@
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>

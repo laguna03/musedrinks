@@ -162,7 +162,7 @@ function animateVideo(timestamp) {
 // ===== INICIAR LA EXPERIENCIA =====
 loadVideo();
 
-// ===== INICIALIZAR FORMULARIO DE PEDIDO =====
+// ===== INICIALIZAR FORMULARIO DE PEDIDO (MULTISELECCIÓN) =====
 initOrderForm();
 
 const WHATSAPP_NUMBER = '7872534967';
@@ -172,31 +172,50 @@ function initOrderForm() {
     const display = document.getElementById('selected-flavor-display');
     const orderForm = document.getElementById('order-form');
     const nameInput = document.getElementById('customer-name');
-    let selectedFlavor = null;
+
+    // Array para almacenar los sabores seleccionados
+    let selectedFlavors = [];
+
+    // Actualizar el display con los sabores seleccionados
+    function updateDisplay() {
+        if (selectedFlavors.length === 0) {
+            display.textContent = 'Aún no has seleccionado ningún sabor.';
+        } else {
+            display.textContent = `Has seleccionado: ${selectedFlavors.join(', ')}`;
+        }
+    }
 
     flavorBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            flavorBtns.forEach(b => b.classList.remove('selected'));
-            this.classList.add('selected');
-            selectedFlavor = this.dataset.flavor;
-            if (display) {
-                display.textContent = `Has seleccionado: ${selectedFlavor}`;
+            const flavor = this.dataset.flavor;
+
+            // Toggle: si ya está seleccionado, lo quitamos; si no, lo agregamos
+            const index = selectedFlavors.indexOf(flavor);
+            if (index > -1) {
+                selectedFlavors.splice(index, 1);
+                this.classList.remove('selected');
+            } else {
+                selectedFlavors.push(flavor);
+                this.classList.add('selected');
             }
+
+            updateDisplay();
         });
     });
 
     orderForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        if (!selectedFlavor) {
-            alert('Por favor selecciona un sabor primero.');
+        if (selectedFlavors.length === 0) {
+            alert('Por favor selecciona al menos un sabor.');
             return;
         }
 
         const name = nameInput.value.trim();
         const greeting = name ? `Hola, soy ${name}.` : 'Hola,';
-        const message = `${greeting} Quiero pedir un jugo de ${selectedFlavor}.`;
+        const flavorsList = selectedFlavors.join(', ');
+        const message = `${greeting} Quiero pedir los siguientes jugos: ${flavorsList}.`;
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
         window.open(whatsappUrl, '_blank');
